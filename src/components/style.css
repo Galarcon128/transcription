@@ -1,0 +1,65 @@
+.sequenceGrid {
+  display: grid;
+  grid-template-columns: repeat(11, auto);
+}
+
+.bpContainer {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 2px solid #ffffff;
+}
+
+.bpSelected {
+  border: 6px solid rgb(223, 181, 58) !important ;
+  color: rgb(255, 240, 196) !important ;
+  box-shadow: 0px 0px 24px 12px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 24px 12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 24px 12px rgba(0, 0, 0, 0.75);
+  z-index: 99;
+}
+
+.bpTarget {
+  color: #ffffff;
+}
+
+.bpTargetRight {
+  color: #42db34;
+}
+
+.bpTargetError {
+  color: #db3434;
+}
+
+.pstyle {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 40px;
+  letter-spacing: 6px;
+  word-spacing: 1.6px;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+}
+
+.rdb_sequence_A {
+  background-color: #179f55;
+  color: #fff;
+}
+
+.rdb_sequence_T {
+  background-color: #b39a12;
+  color: #fff;
+}
+
+.rdb_sequence_G {
+  background-color: #f03a3a;
+  color: #fff;
+}
+
+.rdb_sequence_C {
+  background-color: #4150f0;
+  color: #fff;
+}

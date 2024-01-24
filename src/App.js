@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { CountdownTimer } from "./components/CountdownTimer";
+import DNAsequence from "./components/DNAsequence";
 import { GAME_STATE } from "./static";
 
 const BUTTON_MESSAGE = {};
@@ -9,10 +10,19 @@ BUTTON_MESSAGE[GAME_STATE.stop] = "TRY AGAIN?";
 
 function App() {
   const [stateGame, setStateGame] = useState(0);
-  const [init, setInit] = useState(0);
+  
   const [score, setScore] = useState(0);
 
   const bpTarget = useRef(null);
+
+  const handleScoreUp = ()=>{
+    setScore((s)=>s+1)
+  }
+
+  const handleScoreDown = ()=>{
+    setScore((s)=>s-1)
+  }
+
 
   const handleStart = () => {
     setStateGame(GAME_STATE.play);
@@ -26,28 +36,7 @@ function App() {
     setStateGame(GAME_STATE.rest);
   };
 
-  const handleKeyPress = useCallback(
-    (event) => {
-      const pressedKey = event.key.toUpperCase();
-      if (["A", "T", "G", "C"].includes(pressedKey)) {
-        let bpTarget = sequence[init + 4];
-        console.log(pressedKey, bpTarget);
-        if (bpTarget.toUpperCase() === pressedKey) {
-          setInit((n) => n + 1);
-        }
-        //setUserInput(pressedKey);
-      }
-    },
-    [setInit, init]
-  );
-
-  useEffect(() => {
-    document.addEventListener("keydown", handleKeyPress);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-    };
-  }, [handleKeyPress]);
+  
 
   return (
     <div className="wrapper">
@@ -76,31 +65,10 @@ function App() {
           <CountdownTimer timeOver={handleStopGame} />
         </div>
       )}
-      <div className="wordsWrap">
-        <p className="pstyle">
-          {sequence.map((bp, index) => {
-
-            if (index === init+4) {
-              return (
-                <span
-                  ref={bpTarget}
-                  className={"bpTarget"}
-                  id={"bp_" +(init+4) }
-                  key={"bp_" + bp + "_" + index}
-                >
-                  {bp}
-                </span>
-              );
-            }
-            return bp;
-          })}
-        </p>
-      </div>
+      <DNAsequence handleScoreUp={handleScoreUp} handleScoreDown={handleScoreDown} />
     </div>
   );
 }
 
 export default App;
 
-const sequence =
-  "____ATGAAAAAGCACCTTCTGCCTCTCGCTCTGCTGTTTTCCGGAATATCTCCGGCCCAGGCGCTGGATGTCGGCGATATATCATCGTTTATGAACAGTGACAGCAGCACGCTGAGCAAAACGATCAAAAACAGTACCGACAGTGGTCGCCTTATCAATATCCGTCTCGAACGGCTCTCTTCACCGCTTGACGACGGGCAGGTTATCTCAATGGACAAGCCGGATGAGTTGCTACTCACTCCCGCCAGCTTGCTGCTACCCGCCCAAGCCAGCGAAGTGATCCGCTTCTTCTATAAGGGACCCGCAGATGAAAAAGAGCGCTACTACCGCATTGTCTGGTTTGATCAGGCCCTCAGTGATGCGCAGCGCGATAATGCCAACCGCAGCGCTGTGGCCACTGCTTCCGCCCGCATCGGCACCATTCTGGTCGTCGCCCCTCGTCAGGCGAACTACCACTTTCAGTACGCCAACGGCTCCCTGACAAATACAGGAAATGCGACGCTGCGGATCCTCGCCTACGGACCTTGCCTGAAAGCCGCCAACGGTAAGGAGTGTAAAGAGAATTACTACCTGATGCCGGGCAAGTCGCGTCGTTTTACCCGCGTGGACACTGCGGATAACAAAGGACGGGTTGCACTTTGGCAGGGTGATAAGTTCATTCCCGTGAAATAG".split("");
