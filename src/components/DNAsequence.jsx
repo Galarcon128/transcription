@@ -22,11 +22,14 @@ export default function DNAsequence({
         console.log(pressedKey,bpTarget);
         if (bpTarget.toUpperCase() === pressedKey) {
           setInit((n) => n + 1);
+          handleScoreUp()
+        }else{
+            handleScoreDown()
         }
         //setUserInput(pressedKey);
       }
     },
-    [setInit, init, sequenceStage]
+    [setInit, sequenceStage, handleScoreDown, handleScoreUp]
   );
 
   useEffect(() => {

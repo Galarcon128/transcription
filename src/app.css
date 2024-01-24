@@ -1,0 +1,15 @@
+.polymerase_container{
+    background-image: url("./img/polymerase.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50vw;
+    height: 50vh;
+    position: absolute;
+    top: 25%;
+    
+}
+
+.polymerase_dnaSequence{
+    position: relative;
+    top: 35%;
+}
