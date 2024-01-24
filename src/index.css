@@ -5,6 +5,18 @@
 	-webkit-box-sizing: border-box;
 }
 
+.bpTarget {
+  color: #3498db;
+}
+
+.bpTargetRight {
+  color: #42db34;
+}
+
+.bpTargetError {
+  color: #db3434;
+}
+
 body {
 	background-color: #353535;
 	font-family: 'Raleway', sans-serif;
