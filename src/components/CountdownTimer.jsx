@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {GAME_STATE} from "../static"
+//import {GAME_STATE} from "../static"
 
 export const CountdownTimer = ({stateGame,timeOver = ()=>{}}) => {
     const [seconds, setSeconds] = useState(60);

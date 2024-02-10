@@ -4,6 +4,7 @@ import DNAsequence from "./components/DNAsequence";
 import { GAME_STATE } from "./static";
 import Title from "./components/Title";
 import ButtonGame from "./components/ButtonGame";
+import Score from "./components/Score";
 import "./app.css";
 
 function App() {
@@ -60,6 +61,9 @@ function Appa({ setStateGame, stateGame }) {
           <span className="score">{score}</span>
         </div>
       </div>
+      {stateGame === GAME_STATE.stop && (
+        <Score score={score} />
+      )}
       {stateGame !== GAME_STATE.play && (
         <ButtonGame stateGame={stateGame} handleStart={handleStart} />
       )}
