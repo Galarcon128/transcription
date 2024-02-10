@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import {GAME_STATE} from "../static"
 
-export const CountdownTimer = ({timeOver = ()=>{}}) => {
+export const CountdownTimer = ({stateGame,timeOver = ()=>{}}) => {
     const [seconds, setSeconds] = useState(60);
   
     useEffect(() => {
@@ -18,9 +19,9 @@ export const CountdownTimer = ({timeOver = ()=>{}}) => {
   
     return (
       <div>
-        <div className="timeWrap">
+        <div className="gameTime">
           <p>Time left</p>
-          <span className="time">{seconds}</span>
+          <p><span className="time">{seconds}</span></p>
         </div>
       </div>
     );

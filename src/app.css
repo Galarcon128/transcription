@@ -1,11 +1,53 @@
+.gameButton{
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.gameButton p {
+    color: #32617d;
+    font-weight: 700;
+    font-size: 2vw;
+}
+
+.gameContainer{
+    position: absolute;
+    width: 100vw;
+    height: 78vh;
+}
+
+.gameTime{
+    position: absolute;
+    left: 43%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameTime p {
+    color: #32617d;
+    font-weight: 700;
+    font-size: 2vw;
+}
+
+.titleGame{
+    display: flex;
+    justify-content: center;
+    height: 15vh;
+}
+
 .polymerase_container{
     background-image: url("./img/polymerase.svg");
     background-size: contain;
     background-repeat: no-repeat;
     width: 50vw;
     height: 50vh;
-    position: absolute;
-    top: 25%;
+    position: relative;
+    top: 0;
     
 }
 
