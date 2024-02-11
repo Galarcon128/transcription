@@ -32,7 +32,7 @@ export default function SequenceGame({handleScoreUp,handleScoreDown}) {
             const polymerasePosX = (width/2)-(polymerase.offsetWidth/2)
             polymerase.style.left = polymerasePosX+"px"
             polymeraseUP.style.left = polymerasePosX+"px"
-            polymeraseUP.style.top = (polymerase.offsetWidth*0.6)+"px"
+            polymeraseUP.style.top = (polymerase.offsetWidth*0.55)+"px"
 
             //sequenceDNA
             const sequenceDNAPosY = (polymerase.offsetHeight*0.25)
