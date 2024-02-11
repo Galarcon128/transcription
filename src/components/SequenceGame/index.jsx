@@ -20,6 +20,7 @@ export default function SequenceGame({handleScoreUp,handleScoreDown}) {
 
     const setElements = ()=>{
         const polymerase = document.getElementById('polymerase')
+        const polymeraseUP = document.getElementById('polymerase_up')
         const sequenceDNA = document.getElementById("sequenceDNAContainer")
         //const bp = document.getElementById('bp')
         if (polymerase && sequenceDNA) {
@@ -30,6 +31,9 @@ export default function SequenceGame({handleScoreUp,handleScoreDown}) {
             //polymerase.offsetWidth
             const polymerasePosX = (width/2)-(polymerase.offsetWidth/2)
             polymerase.style.left = polymerasePosX+"px"
+            polymeraseUP.style.left = polymerasePosX+"px"
+            polymeraseUP.style.top = (polymerase.offsetWidth*0.6)+"px"
+
             //sequenceDNA
             const sequenceDNAPosY = (polymerase.offsetHeight*0.25)
             sequenceDNA.style.top = sequenceDNAPosY+"px"
@@ -53,9 +57,10 @@ export default function SequenceGame({handleScoreUp,handleScoreDown}) {
   return (
     <div className='sequenceGame' id='gameContainer' >
         <div className='sequenceDNAContainer' id='sequenceDNAContainer'>
-            <Sequence nBP={nBP} />
+            <Sequence nBP={nBP} handleScoreUp={handleScoreUp} handleScoreDown={handleScoreDown} />
         </div>
         <div className='polymerase_container' id='polymerase' />
+        <div className='polymerase_container_up' id='polymerase_up' />
         
     </div>
   )

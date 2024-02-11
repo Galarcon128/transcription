@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 function getBP() {
   const bps = ["A", "C", "G", "T"];
@@ -6,24 +6,66 @@ function getBP() {
   return bps[random];
 }
 
-function generarCadenaADN(longitud) {
-  var cadena = [];
-  var caracteres = ["A", "C", "G", "T"];
-  for (var i = 0; i < longitud; i++) {
-    var indiceAleatorio = Math.floor(Math.random() * caracteres.length);
-    cadena.push(caracteres[indiceAleatorio]);
+const BPinv = {
+  A: "T",
+  T: "A",
+  C: "G",
+  G: "C",
+};
+
+function getDNA(longitud) {
+  let cadena = [];
+  for (let i = 0; i < longitud; i++) {
+    cadena.push(getBP());
   }
   return cadena;
 }
 
-export default function Sequence({ nBP = 21 }) {
+export default function Sequence({
+  nBP = 22,
+  handleScoreUp = () => {},
+  handleScoreDown = () => {},
+}) {
+  const [SEQUENCE, setSEQUENCE] = useState(getDNA(nBP));
+
+  const handleKeyPress = useCallback(
+    (event) => {
+      const pressedKey = event.key.toUpperCase();
+      if (["A", "G", "U", "C"].includes(pressedKey)) {
+        let bpTarget = SEQUENCE[12];
+        //console.log(pressedKey,bpTarget);
+        if (
+          bpTarget === pressedKey ||
+          (bpTarget === "T" && pressedKey === "U")
+        ) {
+          const newSequence = [...SEQUENCE];
+          newSequence.shift()
+          setSEQUENCE([...newSequence, getBP()]);
+          handleScoreUp();
+        } else {
+          handleScoreDown();
+        }
+        //setUserInput(pressedKey);
+      }
+    },
+    [SEQUENCE, handleScoreDown, handleScoreUp]
+  );
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [handleKeyPress]);
+
   return (
     <>
-      {generarCadenaADN(nBP).map((bp, index) => {
+      {SEQUENCE.map((bp, index) => {
         return (
           <div
             key={"bp_" + index + "_" + bp}
-            className={`bpContainer rdb_sequence_${bp.toUpperCase()} ${
+            className={`bpContainer rdb_sequence_${bp} ${
               index === 12 ? "bpSelected" : ""
             }`}
           >
@@ -31,13 +73,13 @@ export default function Sequence({ nBP = 21 }) {
           </div>
         );
       })}
-      {generarCadenaADN(nBP).map((bp, index) => {
+      {SEQUENCE.map((bp, index) => {
         return (
           <div
-            key={"bp_" + index + "_" + bp}
-            className={`bpContainer rdb_sequence_${bp.toUpperCase()}`}
+            key={"bp_" + index + "_inv_" + BPinv[bp]}
+            className={`bpContainer rdb_sequence_${BPinv[bp]} bpInv-${index}`}
           >
-            <p className={`pstyle`}>{bp}</p>
+            <p className={`pstyle`}>{BPinv[bp]}</p>
           </div>
         );
       })}

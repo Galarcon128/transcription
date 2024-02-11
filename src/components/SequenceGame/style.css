@@ -16,6 +16,17 @@
     height: 30vw;
 }
 
+.polymerase_container_up{
+    background-image: url("./img/polymerase.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -190px;
+    position: absolute;
+    width: 30vw;
+    height: 13vw;
+    z-index: 85;
+}
+
 .sequenceDNAContainer{
     background-color: rgba(127, 255, 212, 0.445);
     position: absolute;
