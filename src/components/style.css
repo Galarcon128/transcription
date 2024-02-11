@@ -6,8 +6,6 @@
   border: 2px solid #ffffff;
 }
 
-
-
 .bpTarget {
   color: #ffffff;
 }
@@ -34,6 +32,11 @@
 
 .rdb_sequence_A {
   background-color: #179f55;
+  color: #fff;
+}
+
+.rdb_sequence_U {
+  background-color: #a89732;
   color: #fff;
 }
 

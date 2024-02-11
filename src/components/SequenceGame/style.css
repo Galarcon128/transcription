@@ -1,3 +1,11 @@
+.arn_container{
+    position: absolute;
+    background-color: rgba(127, 255, 212, 0.37);
+    z-index: 88;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 .bpSelected {
     border: 3px solid rgb(223, 181, 58) !important ;
     color: rgb(255, 240, 196) !important ;
@@ -28,7 +36,6 @@
 }
 
 .sequenceDNAContainer{
-    background-color: rgba(127, 255, 212, 0.445);
     position: absolute;
     z-index: 80;
     width: 100%;

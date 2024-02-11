@@ -13,6 +13,13 @@ const BPinv = {
   G: "C",
 };
 
+const RNAcom = {
+  A: "T",
+  U: "A",
+  C: "G",
+  G: "C",
+};
+
 function getDNA(longitud) {
   let cadena = [];
   for (let i = 0; i < longitud; i++) {
@@ -33,15 +40,14 @@ export default function Sequence({
       const pressedKey = event.key.toUpperCase();
       if (["A", "G", "U", "C"].includes(pressedKey)) {
         let bpTarget = SEQUENCE[12];
+        let bpPress = RNAcom[pressedKey]
         //console.log(pressedKey,bpTarget);
-        if (
-          bpTarget === pressedKey ||
-          (bpTarget === "T" && pressedKey === "U")
+        if (bpTarget === bpPress
         ) {
           const newSequence = [...SEQUENCE];
-          newSequence.shift()
+          newSequence.shift();
           setSEQUENCE([...newSequence, getBP()]);
-          handleScoreUp();
+          handleScoreUp(pressedKey);
         } else {
           handleScoreDown();
         }
