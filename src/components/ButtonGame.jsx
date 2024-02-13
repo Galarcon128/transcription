@@ -11,7 +11,7 @@ BUTTON_MESSAGE[GAME_STATE.stop] = "TRY AGAIN?";
 export default function ButtonGame({ stateGame, handleStart }) {
   return (
     <div className="gameButton">
-      <p>{BUTTON_MESSAGE[stateGame]}</p>
+      <p style={{color: "#ffffff"}} >{BUTTON_MESSAGE[stateGame]}</p>
       <IconButton
       sx={{backgroundColor: "#32617d"}}
         onClick={() => {
@@ -28,6 +28,7 @@ export default function ButtonGame({ stateGame, handleStart }) {
       >
         <PlayCircleOutlineIcon sx={{color: "#ffffff", fontSize: "12vw"}}/>
       </IconButton>
+      <p  style={{color: "#ffffff"}} >Press the button to start game</p>
     </div>
   );
 }

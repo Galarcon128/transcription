@@ -1,7 +1,9 @@
 .gameButton{
     position: absolute;
-    left: 40%;
-    top: 20%;
+    top: 10%;
+    width: 100%;
+    height: 20vw;
+    background-color: #72a6c7b3;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -22,10 +24,29 @@
 
 .gameTime{
     position: absolute;
-    left: 43%;
+    width: 90%;
+    height: 10vw;
+    z-index: 100;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+
+.gameScore{
+    position: absolute;
+    width: 90%;
+    height: 5vw;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+.gameScore p {
+    color: #32617d;
+    font-weight: 700;
+    font-size: 2vw;
 }
 
 .gameTime p {

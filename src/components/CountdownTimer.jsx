@@ -20,8 +20,7 @@ export const CountdownTimer = ({stateGame,timeOver = ()=>{}}) => {
     return (
       <div>
         <div className="gameTime">
-          <p>Time left</p>
-          <p><span className="time">{seconds}</span></p>
+          <p>Time left: <span className="time">{seconds}</span></p>
         </div>
       </div>
     );

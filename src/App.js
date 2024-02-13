@@ -9,19 +9,19 @@ import SequenceGame from "./components/SequenceGame";
 import "./app.css";
 
 function App() {
-  const [stateGame, setStateGame] = useState(GAME_STATE.play);
+  const [stateGame, setStateGame] = useState(GAME_STATE.rest);
   return (
     <div className="main">
       <Title />
       <div className="gameContainer">
-        {/*stateGame === GAME_STATE.play && (
+        {stateGame === GAME_STATE.play && (
           <CountdownTimer
             stateGame={stateGame}
             timeOver={() => {
               setStateGame(GAME_STATE.stop);
             }}
           />
-          )*/}
+          )}
         <Appa setStateGame={setStateGame} stateGame={stateGame} />
       </div>
     </div>
