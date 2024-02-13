@@ -29,11 +29,11 @@ function getDNA(longitud) {
 }
 
 export default function Sequence({
-  nBP = 22,
+  nBP,
   handleScoreUp = () => {},
   handleScoreDown = () => {},
 }) {
-  const [SEQUENCE, setSEQUENCE] = useState(getDNA(nBP));
+  const [SEQUENCE, setSEQUENCE] = useState(getDNA(nBP ? nBP.numberOfBP : 22));
 
   const handleKeyPress = useCallback(
     (event) => {
@@ -83,6 +83,7 @@ export default function Sequence({
         return (
           <div
             key={"bp_" + index + "_inv_" + BPinv[bp]}
+            style={{height: nBP ? nBP.bpHeight : 100}}
             className={`bpContainer rdb_sequence_${BPinv[bp]} bpInv-${index}`}
           >
             <p className={`pstyle`}>{BPinv[bp]}</p>

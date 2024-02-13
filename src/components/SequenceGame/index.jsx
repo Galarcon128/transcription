@@ -62,9 +62,10 @@ export default function SequenceGame({handleScoreUp,handleScoreDown}) {
             arn.style.height = bpHeight+"px"
             arn.style.width = (bpWidth*13)+"px"
             arn.style.top = (2*bpHeight)+"px"
+            arn.style.paddingRight = bpWidth+"px"
             //arn.style.display = "grid"
             //arn.style.gridTemplateColumns = `repeat(${13}, ${bpWidth}px)`
-            set_nBP(numberOfBP)
+            set_nBP({numberOfBP,bpHeight})
 
         }
     }
@@ -83,7 +84,7 @@ export default function SequenceGame({handleScoreUp,handleScoreDown}) {
                         <div
                           key={"bp_" + index + "_ARN"}
                           className={`bpContainer rdb_sequence_${bp}`}
-                          style={{marginTop: (10*index)+"px"}}
+                          style={{marginTop: (10*(index+1))+"px", height: nBP ? nBP.bpHeight : 100}}
                         >
                           <p className={`pstyle`}>{bp}</p>
                         </div>

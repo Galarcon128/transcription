@@ -1,9 +1,9 @@
 .arn_container{
     position: absolute;
-    background-color: rgba(127, 255, 212, 0.37);
     z-index: 88;
     display: flex;
     flex-direction: row-reverse;
+    margin-right: 10px;
 }
 
 .bpSelected {

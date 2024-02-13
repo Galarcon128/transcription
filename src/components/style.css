@@ -1,6 +1,5 @@
 .bpContainer {
   display: flex;
-  height: 100px;
   align-items: center;
   justify-content: space-evenly;
   border: 2px solid #ffffff;
@@ -20,7 +19,7 @@
 
 .pstyle {
   font-family: "Courier New", Courier, monospace;
-  font-size: 40px;
+  font-size: 4vw;
   letter-spacing: 6px;
   word-spacing: 1.6px;
   font-weight: 700;
@@ -31,27 +30,27 @@
 }
 
 .rdb_sequence_A {
-  background-color: #179f55;
+  background-color: #3cff94;
   color: #fff;
 }
 
 .rdb_sequence_U {
-  background-color: #a89732;
+  background-color: #ffe659;
   color: #fff;
 }
 
 .rdb_sequence_T {
-  background-color: #b39a12;
+  background-color: #ffe659;
   color: #fff;
 }
 
 .rdb_sequence_G {
-  background-color: #f03a3a;
+  background-color: #fc6a6a;
   color: #fff;
 }
 
 .rdb_sequence_C {
-  background-color: #4150f0;
+  background-color: #828cff;
   color: #fff;
 }
 
