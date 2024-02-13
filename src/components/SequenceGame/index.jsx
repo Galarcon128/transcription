@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import "./style.css"
 import Sequence from './Sequence'
 
-export default function SequenceGame({handleScoreUp,handleScoreDown}) {
+export default function SequenceGame({handleScoreUp,handleScoreDown,stateGame}) {
 
     const [nBP, set_nBP] = useState()
     const [arnSequence, setArnSequence] = useState([])
 
-    console.log(arnSequence);
+    //console.log(arnSequence);
 
     const handleCreateARN=(bp)=>{
         handleScoreUp()
@@ -19,10 +19,8 @@ export default function SequenceGame({handleScoreUp,handleScoreDown}) {
             setElements()
             window.addEventListener('resize', setElements);
         }
-        
-    
       return () => {
-        window.addEventListener('resize', ()=>{});
+        document.removeEventListener('resize', ()=>{});
       }
     }, [nBP])
 
@@ -73,7 +71,7 @@ export default function SequenceGame({handleScoreUp,handleScoreDown}) {
   return (
     <div className='sequenceGame' id='gameContainer' >
         <div className='sequenceDNAContainer' id='sequenceDNAContainer'>
-            <Sequence nBP={nBP} handleScoreUp={handleCreateARN} handleScoreDown={handleScoreDown} />
+            <Sequence stateGame={stateGame} nBP={nBP} handleScoreUp={handleCreateARN} handleScoreDown={handleScoreDown} />
         </div>
         <div className='polymerase_container' id='polymerase' />
         <div className='polymerase_container_up' id='polymerase_up' />

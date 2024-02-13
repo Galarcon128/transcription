@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { GAME_STATE } from "../../static";
 
 function getBP() {
   const bps = ["A", "C", "G", "T"];
@@ -30,6 +31,7 @@ function getDNA(longitud) {
 
 export default function Sequence({
   nBP,
+  stateGame,
   handleScoreUp = () => {},
   handleScoreDown = () => {},
 }) {
@@ -58,12 +60,18 @@ export default function Sequence({
   );
 
   useEffect(() => {
-    document.addEventListener("keydown", handleKeyPress);
+    
+    if (GAME_STATE.play === stateGame) {
+      document.addEventListener("keydown", handleKeyPress);
+    }
+    if (GAME_STATE.stop === stateGame) {
+      document.removeEventListener("keydown", handleKeyPress);
+    }
 
     return () => {
       document.removeEventListener("keydown", handleKeyPress);
     };
-  }, [handleKeyPress]);
+  }, [handleKeyPress,stateGame]);
 
   return (
     <>

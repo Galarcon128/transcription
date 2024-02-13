@@ -1,6 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { CountdownTimer } from "./components/CountdownTimer";
-import DNAsequence from "./components/DNAsequence";
 import { GAME_STATE } from "./static";
 import Title from "./components/Title";
 import ButtonGame from "./components/ButtonGame";
@@ -67,6 +66,7 @@ function Appa({ setStateGame, stateGame }) {
         <ButtonGame stateGame={stateGame} handleStart={handleStart} />
       )}
       <SequenceGame
+      stateGame={stateGame}
         handleScoreUp={handleScoreUp}
         handleScoreDown={handleScoreDown}
       />
