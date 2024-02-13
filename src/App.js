@@ -42,6 +42,7 @@ function Appa({ setStateGame, stateGame }) {
 
   const handleStart = () => {
     setStateGame(GAME_STATE.play);
+    setScore(0)
   };
 
   const handleStopGame = () => {
